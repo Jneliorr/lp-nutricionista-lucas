@@ -31,6 +31,11 @@ export const gallery = [
   { src: '/images/lucas-consultorio.jpg', alt: 'Lucas Luz no consultório, em fotografia publicada no seu Instagram', label: 'A rotina do consultório', detail: 'Um olhar para o cuidado', source: 'https://www.instagram.com/p/DLbDRNGvT47/' },
   { src: '/images/lucas-atleta.jpg', alt: 'Lucas Luz no palco de uma competição de fisiculturismo, com troféu', label: 'O esporte faz parte', detail: 'A vivência além do consultório', source: 'https://www.instagram.com/p/DQJ9UvxgKhl/' },
 ]
+export const publications = [
+  { id: 'DcULRBLCTVc', kind: 'reel', title: 'Evoluindo juntos.', eyebrow: 'EM COLABORAÇÃO', description: 'Lucas Luz e CT Thiago Câmara compartilham o início de um projeto que conecta treino e alimentação.', source: 'https://www.instagram.com/reel/DcULRBLCTVc/', embed: true },
+  { id: 'DQhylbxgbtQ', kind: 'post', title: 'Constância para a vida real.', eyebrow: 'UM OLHAR SOBRE A NUTRIÇÃO', description: 'A visão do Lucas sobre uma alimentação que considera a rotina e as preferências de cada pessoa.', source: 'https://www.instagram.com/p/DQhylbxgbtQ/', embed: true },
+  { id: 'DYdGjd2BHlh', kind: 'reel', title: 'Acompanhamento em foco.', eyebrow: 'NO PERFIL DO LUCAS', description: 'Confira a publicação original no Instagram do Lucas. Este conteúdo permanece na plataforma de origem.', source: 'https://www.instagram.com/reel/DYdGjd2BHlh/', embed: false },
+]
 export const storageKey = 'lucas-luz-briefing-v1'
 export function loadConfig(): Config {
   try { const raw = localStorage.getItem(storageKey); return raw ? validateConfig(JSON.parse(raw)) : initialConfig } catch { return initialConfig }

@@ -42,4 +42,10 @@ O mapa usa Google Maps, as fontes usam Google Fonts e os CTAs abrem WhatsApp/Ins
 
 ## Publicação
 
+### Publicações adicionadas à galeria
+
+Os três links enviados posteriormente estão em `publications`, em `src/config/business.ts`, e aparecem na galeria. O reel em colaboração com CT Thiago Câmara e a publicação sobre constância usam a incorporação oficial do Instagram, carregada apenas após clique. Os links para abrir os originais ficam sempre disponíveis, inclusive se o Instagram exigir login ou impedir incorporação. A visualização de conteúdos do Instagram depende das permissões e disponibilidade da plataforma.
+
+O reel `DYdGjd2BHlh` apresenta resultado de paciente. Por não haver autorização de reprodução confirmada no briefing, aparece somente como link para o original, sem copiar imagem, depoimento ou alegação de resultado. Não foram copiados comentários de pacientes para a seção de avaliações.
+
 O site será disponibilizado no acesso privado do Sites. Para servir `dist` em outra hospedagem, publicar a pasta gerada e configurar o fallback de SPA. O bundle do configurador é carregado sob demanda e não aparece na navegação pública.
