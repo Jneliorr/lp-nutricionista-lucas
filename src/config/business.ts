@@ -29,7 +29,7 @@ export const services = [
 ]
 export type Photo = { src: string; alt: string; label: string; detail: string; source?: string }
 export const gallery: Photo[] = [
-  { src: '/images/profissional-2.jpg', alt: 'Lucas Luz no consultório', label: 'A rotina do consultório', detail: 'Um olhar para o cuidado' },
+  { src: '/images/lucas-movimento.jpg', alt: 'Lucas Luz participando de uma corrida de rua', label: 'Em movimento', detail: 'O esporte na vida real', source: 'https://www.instagram.com/lucasluz.nutri/p/De0OHrfkbAk/' },
   { src: '/images/lucas-atleta.jpg', alt: 'Lucas Luz no palco de uma competição de fisiculturismo, com troféu', label: 'O esporte faz parte', detail: 'A vivência além do consultório', source: 'https://www.instagram.com/p/DQJ9UvxgKhl/' },
 ]
 export const officePhotos: Photo[] = [

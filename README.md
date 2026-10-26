@@ -46,10 +46,14 @@ O mapa usa Google Maps, as fontes usam Google Fonts e os CTAs abrem WhatsApp/Ins
 
 A seção independente **Antes e depois**, em `#antes-e-depois`, apresenta as comparações masculina e feminina fornecidas pelo cliente, preservadas integralmente, com ampliação. Também mantém o reel `DdwjEjfy7Vn`, enviado expressamente para essa seção. O relato original é de Igor Santana, em colaboração com Lucas Luz. A incorporação oficial é carregada após clique e tem link alternativo para o Instagram. Sem números de resultados ou promessas. Conteúdo em `comparisonPhotos` e `beforeAfter`, em `src/config/business.ts`, e componente `src/components/BeforeAfter.tsx`.
 
-As fotos `profissional-1.jpeg` e `profissional-2.jpg` compõem o perfil; a primeira também é a imagem principal. A seção `#consultorio` apresenta `sala1.jpeg` e `sala2.jpeg`, com ampliação e navegação por teclado. Rascunhos antigos do configurador migram para a logo transparente e para a nova imagem principal.
+A foto `profissional-1.jpeg` é a imagem principal; `profissional-2.jpg` aparece na seção sobre o profissional. A seção `#consultorio` apresenta `sala1.jpeg` e `sala2.jpeg`, com ampliação e navegação por teclado. Rascunhos antigos do configurador migram para a logo transparente e para a nova imagem principal.
 
 Os três links enviados posteriormente estão em `publications`, em `src/config/business.ts`, e aparecem na galeria. O reel em colaboração com CT Thiago Câmara e a publicação sobre constância usam a incorporação oficial do Instagram, carregada apenas após clique. Os links para abrir os originais ficam sempre disponíveis, inclusive se o Instagram exigir login ou impedir incorporação. A visualização de conteúdos do Instagram depende das permissões e disponibilidade da plataforma.
 
-O reel `DYdGjd2BHlh` apresenta resultado de paciente. Por não haver autorização de reprodução confirmada no briefing, aparece somente como link para o original, sem copiar imagem, depoimento ou alegação de resultado. Não foram copiados comentários de pacientes para a seção de avaliações.
+O reel `DYdGjd2BHlh`, adicionado expressamente pelo cliente a **Trajetórias reais**, possui incorporação oficial carregada após clique e link para o Instagram. A galeria mantém o link para o original. Não foram copiados comentários de pacientes para a seção de avaliações.
+
+Os dois comparadores usam `ImageComparison.tsx`: cada montagem original é exibida em duas camadas com a metade esquerda (antes) e a direita (depois), sem gerar ou alterar as fotografias. O controle nativo `range` revela as camadas por recorte, funciona com mouse, toque e teclado e mantém os controles independentes. A ampliação abre a montagem original.
+
+O perfil usa somente `profissional-2.jpg`, sem retrato sobreposto. A primeira foto da galeria é `lucas-movimento.jpg`, obtida da publicação pública `https://www.instagram.com/lucasluz.nutri/p/De0OHrfkbAk/`. Os cinco cartões de avaliações são exemplos fictícios, identificados individualmente e no cabeçalho; não representam relatos reais nem alimentam dados estruturados de avaliações.
 
 O site será disponibilizado no acesso privado do Sites. Para servir `dist` em outra hospedagem, publicar a pasta gerada e configurar o fallback de SPA. O bundle do configurador é carregado sob demanda e não aparece na navegação pública.
