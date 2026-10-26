@@ -13,7 +13,7 @@ export const initialConfig: Config = {
   subtitle: 'Entre a sua rotina e os seus objetivos, existe um caminho que faz sentido para você. Vamos conversar sobre ele?',
   about: 'Sou Lucas Luz, nutricionista em Itaboraí. Minha atuação na nutrição também encontra o esporte: no meu perfil, compartilho a rotina de consultório e a vivência como atleta. Atendo presencialmente e online. Conheça meu trabalho e converse comigo sobre o que você busca para a sua alimentação.',
   theme: 'editorial', mode: 'A', crn: '', email: '', hours: '',
-  audience: '', difference: '', heroImage: '/images/lucas-consultorio.jpg', logo: '/images/logo-lucas-luz.jpeg',
+  audience: '', difference: '', heroImage: '/images/profissional-1.jpeg', logo: '/images/logo-lucas-luz.png',
 }
 export const themes = [
   { id: 'editorial', name: 'Editorial Luxury', colors: ['#f3f1f2','#075965','#17191a'], description: 'Tipografia serifada e composição de revista.' },
@@ -27,9 +27,18 @@ export const services = [
   { title: 'Consultoria presencial', tag: 'EM ITABORAÍ', description: 'Um encontro no consultório para conversar sobre sua alimentação, rotina e objetivos. Consulte os detalhes do atendimento pelo WhatsApp.', icon: 'office' },
   { title: 'Consultoria online', tag: 'ONDE VOCÊ ESTIVER', description: 'A possibilidade de conversar sobre nutrição à distância. Entre em contato para saber como funciona a modalidade online.', icon: 'online' },
 ]
-export const gallery = [
-  { src: '/images/lucas-consultorio.jpg', alt: 'Lucas Luz no consultório, em fotografia publicada no seu Instagram', label: 'A rotina do consultório', detail: 'Um olhar para o cuidado', source: 'https://www.instagram.com/p/DLbDRNGvT47/' },
+export type Photo = { src: string; alt: string; label: string; detail: string; source?: string }
+export const gallery: Photo[] = [
+  { src: '/images/profissional-2.jpg', alt: 'Lucas Luz no consultório', label: 'A rotina do consultório', detail: 'Um olhar para o cuidado' },
   { src: '/images/lucas-atleta.jpg', alt: 'Lucas Luz no palco de uma competição de fisiculturismo, com troféu', label: 'O esporte faz parte', detail: 'A vivência além do consultório', source: 'https://www.instagram.com/p/DQJ9UvxgKhl/' },
+]
+export const officePhotos: Photo[] = [
+  { src: '/images/sala1.jpeg', alt: 'Vista da sala de atendimento de Lucas Luz, com poltronas, mesa e janela', label: 'Um espaço para conversar', detail: 'SALA DE ATENDIMENTO' },
+  { src: '/images/sala2.jpeg', alt: 'Mesa de atendimento no consultório de Lucas Luz, com certificados e troféus ao fundo', label: 'Cuidado em cada detalhe', detail: 'O CONSULTÓRIO' },
+]
+export const comparisonPhotos: Photo[] = [
+  { src: '/images/antesxdepois-homem.jpeg', alt: 'Comparação masculina: antes à esquerda e depois à direita', label: 'Antes e depois · Homem', detail: '01' },
+  { src: '/images/antesxdepois-mulher.jpeg', alt: 'Comparação feminina: antes à esquerda e depois à direita', label: 'Antes e depois · Mulher', detail: '02' },
 ]
 export const publications = [
   { id: 'DcULRBLCTVc', kind: 'reel', title: 'Evoluindo juntos.', eyebrow: 'EM COLABORAÇÃO', description: 'Lucas Luz e CT Thiago Câmara compartilham o início de um projeto que conecta treino e alimentação.', source: 'https://www.instagram.com/reel/DcULRBLCTVc/', embed: true },
@@ -59,6 +68,8 @@ export function validateConfig(value: unknown): Config {
   }
   if (!themes.some(t => t.id === result.theme) || !['A','B'].includes(result.mode)) throw new Error('Tema ou modo inválido.')
   if (!result.logo) result.logo = initialConfig.logo
+  if (result.logo === '/images/logo-lucas-luz.jpeg') result.logo = initialConfig.logo
+  if (result.heroImage === '/images/lucas-consultorio.jpg') result.heroImage = initialConfig.heroImage
   for (const key of ['instagram','google'] as const) if (!/^https:\/\//.test(result[key])) throw new Error(`Use HTTPS em ${key}.`)
   for (const key of ['heroImage','logo'] as const) if (result[key] && !/^(\/[^/]|https:\/\/|data:image\/(png|jpeg|webp);base64,)/.test(result[key])) throw new Error(`Imagem inválida: ${key}`)
   return result

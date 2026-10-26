@@ -1,15 +1,22 @@
 import { useState } from 'react'
-import { ArrowRight, ArrowUpRight, Instagram, Play, X } from 'lucide-react'
-import { beforeAfter } from '../config/business'
+import { ArrowRight, ArrowUpRight, Instagram, Play, Plus, X } from 'lucide-react'
+import { beforeAfter, comparisonPhotos } from '../config/business'
+import Lightbox from './Lightbox'
 import './BeforeAfter.css'
 
 export default function BeforeAfter() {
   const [playing, setPlaying] = useState(false)
+  const [selected, setSelected] = useState<number|null>(null)
   return <section className="before-after section" id="antes-e-depois" aria-labelledby="before-after-title">
+    <div className="container comparison-section">
+      <div className="section-heading reveal"><div><span className="eyebrow">05 — ANTES E DEPOIS</span><h2 id="before-after-title">Cada mudança,<br/>uma <em>trajetória.</em></h2></div><p>Dois exemplos de evolução.<br/>Cada pessoa tem sua rotina, seu tempo e seus objetivos.</p></div>
+      <div className="comparison-grid">{comparisonPhotos.map((photo,i)=><figure className="comparison-card reveal" key={photo.src}><button onClick={()=>setSelected(i)} aria-label={`Ampliar: ${photo.label}`}><img src={photo.src} alt={photo.alt} width="1280" height="1280" loading="lazy"/><span className="comparison-labels" aria-hidden="true"><span>Antes</span><span>Depois</span></span><span className="comparison-zoom"><Plus size={20}/></span></button><figcaption><span className="eyebrow">{photo.detail} / {i===0?'HOMEM':'MULHER'}</span><span>Antes e depois <ArrowUpRight size={16}/></span></figcaption></figure>)}</div>
+      <p className="comparison-note">Cada evolução é individual e depende de diferentes fatores. As imagens não representam garantia de resultados.</p>
+    </div>
     <div className="container before-after-grid">
       <div className="before-after-copy reveal">
         <span className="eyebrow">TRAJETÓRIAS REAIS</span>
-        <h2 id="before-after-title">Antes e depois.<br/><em>Além da imagem.</em></h2>
+        <h2>Além da imagem,<br/><em>uma história.</em></h2>
         <p className="before-after-intro">Por trás de cada mudança, existe uma história, uma rotina e um caminho próprio.</p>
         <div className="before-after-story"><span className="story-number">01</span><div><span className="eyebrow">A HISTÓRIA DE</span><h3>{beforeAfter.person}</h3><p>{beforeAfter.summary}</p><span className="story-source"><Instagram size={14}/> {beforeAfter.account} + @lucasluz.nutri</span></div></div>
         <a className="text-link" href={beforeAfter.source} target="_blank" rel="noreferrer">Conhecer o relato no Instagram <ArrowUpRight size={18}/></a>
@@ -21,5 +28,6 @@ export default function BeforeAfter() {
         <div className="before-after-media-bottom"><span>ALIMENTAÇÃO. ROTINA. CONSTÂNCIA.</span><span>LL / 01</span></div>
       </div>
     </div>
+    {selected!==null&&<Lightbox index={selected} photos={comparisonPhotos} onChange={setSelected} onClose={()=>setSelected(null)}/>}
   </section>
 }

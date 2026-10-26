@@ -1,9 +1,9 @@
-/* Identity sampled from the user-provided logo.jpeg; preserve the original bitmap. */
+/* Transparent logo extracted from the client-provided identity. */
 :root,.site,.mini-site,.config-app{--cream:#f3f1f2;--paper:#e8eef0;--ink:#17191a;--muted:#52636a;--accent:#075965;--line:#cddadd;--brand:#075965;--brand-soft:#afc9d0}
 .theme-cinematic{--cream:#17191a;--paper:#222a2c;--ink:#f3f1f2;--muted:#c2cbd0;--accent:#afc9d0;--line:#40545a}
 .brand-image{display:inline-flex;flex-shrink:0;line-height:0}
-.brand-original .brand-logo-window{display:block;position:relative;width:174px;aspect-ratio:410 / 200;overflow:hidden;background:#f3f1f2;flex-shrink:0}
-.brand-original img.brand-logo{position:absolute;max-width:none;width:172.92683%;height:auto;left:-37.80488%;top:-118.5%;object-fit:contain}
+.brand-original .brand-logo-window{display:block;position:relative;width:174px;aspect-ratio:2.05;overflow:hidden;flex-shrink:0}
+.brand-original img.brand-logo{position:absolute;max-width:none;width:132%;height:auto;left:-16%;top:-24%;object-fit:contain}
 .brand-custom .brand-logo-window{display:block;width:174px;height:72px}
 .brand-custom img.brand-logo{width:100%;height:100%;object-fit:contain}
 .header-inner{height:110px}.header.scrolled .header-inner{height:90px}
@@ -29,9 +29,9 @@
 .theme-option.selected{background:#e5eef0;border-color:var(--brand)}
 .config-mode input{accent-color:var(--brand)}
 .mini-header .brand-original .brand-logo-window{width:119px}
-.mini-header .brand-original img.brand-logo{width:172.92683%;height:auto}
+.mini-header .brand-original img.brand-logo{width:132%;height:auto}
 .mini-header .brand-custom .brand-logo-window{width:119px;height:56px}
-.theme-cinematic .brand-logo-window{border-radius:2px}
+.theme-cinematic .brand-logo{filter:brightness(0) invert(1)}
 @media(min-width:768px) and (max-width:1000px){.header .nav{top:110px}.header.scrolled .nav{top:90px}}
 @media(max-width:767px){.brand-original .brand-logo-window{width:132px}.brand-custom .brand-logo-window{width:132px;height:60px}.header-inner{height:86px}.header.scrolled .header-inner{height:82px}.nav{top:86px}.header.scrolled .nav{top:82px}.config-header{height:93px}.config-header>.brand-original .brand-logo-window{width:144px}.mini-header .brand-original .brand-logo-window{width:119px}.mini-header .brand-custom .brand-logo-window{width:119px;height:56px}}
 @media(max-width:380px){.brand-original .brand-logo-window{width:118px}.brand-custom .brand-logo-window{width:118px;height:56px}.button-header{gap:7px}.header-inner{gap:8px}.config-header>.brand-original .brand-logo-window{width:132px}}
