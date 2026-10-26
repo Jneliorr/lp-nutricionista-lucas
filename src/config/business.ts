@@ -13,15 +13,15 @@ export const initialConfig: Config = {
   subtitle: 'Entre a sua rotina e os seus objetivos, existe um caminho que faz sentido para você. Vamos conversar sobre ele?',
   about: 'Sou Lucas Luz, nutricionista em Itaboraí. Minha atuação na nutrição também encontra o esporte: no meu perfil, compartilho a rotina de consultório e a vivência como atleta. Atendo presencialmente e online. Conheça meu trabalho e converse comigo sobre o que você busca para a sua alimentação.',
   theme: 'editorial', mode: 'A', crn: '', email: '', hours: '',
-  audience: '', difference: '', heroImage: '/images/lucas-consultorio.jpg', logo: '',
+  audience: '', difference: '', heroImage: '/images/lucas-consultorio.jpg', logo: '/images/logo-lucas-luz.jpeg',
 }
 export const themes = [
-  { id: 'editorial', name: 'Editorial Luxury', colors: ['#f4f1e9','#263e3b','#b5a48a'], description: 'Areia, tipografia serifada e composição de revista.' },
-  { id: 'performance', name: 'Performance Bold', colors: ['#142323','#d9e8ab','#fbfaf6'], description: 'Contraste forte e tipografia expressiva.' },
-  { id: 'clinical', name: 'Clinical Modern', colors: ['#edf4f6','#1e475e','#8fb9ab'], description: 'Geometria precisa e transparência suave.' },
-  { id: 'organic', name: 'Organic Wellness', colors: ['#f0eadc','#535e3d','#bb936f'], description: 'Tons naturais e formas acolhedoras.' },
-  { id: 'avant', name: 'Avant-Garde', colors: ['#f1ece5','#382b47','#b6b6e8'], description: 'Composição ousada e contraste editorial.' },
-  { id: 'cinematic', name: 'Cinematic Premium', colors: ['#141d28','#e1bf8d','#f2eee7'], description: 'Atmosfera profunda e luz em bronze.' },
+  { id: 'editorial', name: 'Editorial Luxury', colors: ['#f3f1f2','#075965','#17191a'], description: 'Tipografia serifada e composição de revista.' },
+  { id: 'performance', name: 'Performance Bold', colors: ['#17191a','#075965','#f3f1f2'], description: 'Contraste forte e tipografia expressiva.' },
+  { id: 'clinical', name: 'Clinical Modern', colors: ['#f3f1f2','#075965','#e8eef0'], description: 'Geometria precisa e transparência suave.' },
+  { id: 'organic', name: 'Organic Wellness', colors: ['#e8eef0','#075965','#17191a'], description: 'Formas orgânicas e composições acolhedoras.' },
+  { id: 'avant', name: 'Avant-Garde', colors: ['#17191a','#e8eef0','#075965'], description: 'Composição ousada e contraste editorial.' },
+  { id: 'cinematic', name: 'Cinematic Premium', colors: ['#17191a','#075965','#f3f1f2'], description: 'Atmosfera profunda e luz azul petróleo.' },
 ]
 export const services = [
   { title: 'Consultoria presencial', tag: 'EM ITABORAÍ', description: 'Um encontro no consultório para conversar sobre sua alimentação, rotina e objetivos. Consulte os detalhes do atendimento pelo WhatsApp.', icon: 'office' },
@@ -58,6 +58,7 @@ export function validateConfig(value: unknown): Config {
     }
   }
   if (!themes.some(t => t.id === result.theme) || !['A','B'].includes(result.mode)) throw new Error('Tema ou modo inválido.')
+  if (!result.logo) result.logo = initialConfig.logo
   for (const key of ['instagram','google'] as const) if (!/^https:\/\//.test(result[key])) throw new Error(`Use HTTPS em ${key}.`)
   for (const key of ['heroImage','logo'] as const) if (result[key] && !/^(\/[^/]|https:\/\/|data:image\/(png|jpeg|webp);base64,)/.test(result[key])) throw new Error(`Imagem inválida: ${key}`)
   return result

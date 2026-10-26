@@ -23,8 +23,7 @@ export default function Atmosphere({ theme }: { theme: string }) {
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW)
       const position = gl.getAttribLocation(program, 'a_position'); gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0)
       const resolution = gl.getUniformLocation(program,'u_resolution'), time = gl.getUniformLocation(program,'u_time'), color = gl.getUniformLocation(program,'u_color')
-      const colors: Record<string, number[]> = {editorial:[.71,.65,.51],performance:[.29,.55,.47],clinical:[.52,.72,.81],organic:[.56,.61,.38],avant:[.62,.50,.76],cinematic:[.65,.49,.29]}
-      gl.uniform3fv(color, colors[theme] || colors.editorial)
+      gl.uniform3fv(color, [7/255, 89/255, 101/255])
       canvas.dataset.renderer='webgl'
       function render(now: number) {
         if (lost || document.hidden || !visible) return
