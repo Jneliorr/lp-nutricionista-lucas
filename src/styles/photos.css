@@ -14,7 +14,6 @@
 .comparison-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;touch-action:pan-y}
 .image-comparison:focus-within{outline:3px solid var(--accent);outline-offset:4px}
 .image-comparison:focus-within .comparison-divider>span{box-shadow:0 0 0 5px #07596544}
-.comparison-hint{font-size:11px;color:var(--muted);line-height:1.7;margin-top:12px}
 .comparison-card figcaption .text-link{font-size:12px;min-height:44px}
 .comparison-labels{position:absolute;left:16px;right:16px;top:16px;display:flex;justify-content:space-between;pointer-events:none}
 .comparison-labels>span{padding:9px 15px;background:#f3f1f2ed;color:#075965;font-size:11px;letter-spacing:.06em}
@@ -51,7 +50,6 @@
  .comparison-note{font-size:12px;line-height:1.8}
  .office-photo figcaption>span:last-child{font-size:26px}
  .comparison-card{width:100%;max-width:430px;margin-inline:auto}
- .comparison-hint{font-size:12px}
  .example-reviews-grid{grid-template-columns:1fr}
  .example-review>p{font-size:16px}
 }

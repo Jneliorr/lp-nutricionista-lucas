@@ -10,7 +10,7 @@ export default function BeforeAfter() {
   const [selected, setSelected] = useState<number|null>(null)
   return <section className="before-after section" id="antes-e-depois" aria-labelledby="before-after-title">
     <div className="container comparison-section">
-      <div className="section-heading reveal"><div><span className="eyebrow">05 — ANTES E DEPOIS</span><h2 id="before-after-title">Cada mudança,<br/>uma <em>trajetória.</em></h2></div><p>Dois exemplos de evolução.<br/>Cada pessoa tem sua rotina, seu tempo e seus objetivos.</p></div>
+      <div className="section-heading reveal"><div><span className="eyebrow">05 — ANTES E DEPOIS</span><h2 id="before-after-title">Cada mudança,<br/>uma <em>trajetória.</em></h2></div><p>Por trás de cada foto, tem alguém que decidiu começar. Com suas dificuldades, suas pequenas conquistas e um dia de cada vez.</p></div>
       <div className="comparison-grid">{comparisonPhotos.map((photo,i)=><ImageComparison key={photo.src} photo={photo} onExpand={()=>setSelected(i)}/>)}</div>
     </div>
     <div className="container before-after-grid">
