@@ -36,6 +36,13 @@ export const publications = [
   { id: 'DQhylbxgbtQ', kind: 'post', title: 'Constância para a vida real.', eyebrow: 'UM OLHAR SOBRE A NUTRIÇÃO', description: 'A visão do Lucas sobre uma alimentação que considera a rotina e as preferências de cada pessoa.', source: 'https://www.instagram.com/p/DQhylbxgbtQ/', embed: true },
   { id: 'DYdGjd2BHlh', kind: 'reel', title: 'Acompanhamento em foco.', eyebrow: 'NO PERFIL DO LUCAS', description: 'Confira a publicação original no Instagram do Lucas. Este conteúdo permanece na plataforma de origem.', source: 'https://www.instagram.com/reel/DYdGjd2BHlh/', embed: false },
 ]
+export const beforeAfter = {
+  id: 'DdwjEjfy7Vn',
+  person: 'Igor Santana',
+  account: '@igorsantanablak',
+  source: 'https://www.instagram.com/reel/DdwjEjfy7Vn/',
+  summary: 'Igor compartilha sua experiência com o acompanhamento do Lucas e conta como a alimentação passou a fazer parte da sua rotina.',
+}
 export const storageKey = 'lucas-luz-briefing-v1'
 export function loadConfig(): Config {
   try { const raw = localStorage.getItem(storageKey); return raw ? validateConfig(JSON.parse(raw)) : initialConfig } catch { return initialConfig }

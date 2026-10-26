@@ -44,6 +44,8 @@ O mapa usa Google Maps, as fontes usam Google Fonts e os CTAs abrem WhatsApp/Ins
 
 ### Publicações adicionadas à galeria
 
+A seção independente **Antes e depois**, em `#antes-e-depois`, apresenta o reel `DdwjEjfy7Vn`, enviado expressamente para essa seção. O relato original é de Igor Santana, em colaboração com Lucas Luz. A incorporação oficial é carregada após clique e tem link alternativo para o Instagram. Sem extração de imagens comparativas, números de resultados ou promessas. Conteúdo em `beforeAfter`, em `src/config/business.ts`, e componente `src/components/BeforeAfter.tsx`.
+
 Os três links enviados posteriormente estão em `publications`, em `src/config/business.ts`, e aparecem na galeria. O reel em colaboração com CT Thiago Câmara e a publicação sobre constância usam a incorporação oficial do Instagram, carregada apenas após clique. Os links para abrir os originais ficam sempre disponíveis, inclusive se o Instagram exigir login ou impedir incorporação. A visualização de conteúdos do Instagram depende das permissões e disponibilidade da plataforma.
 
 O reel `DYdGjd2BHlh` apresenta resultado de paciente. Por não haver autorização de reprodução confirmada no briefing, aparece somente como link para o original, sem copiar imagem, depoimento ou alegação de resultado. Não foram copiados comentários de pacientes para a seção de avaliações.
