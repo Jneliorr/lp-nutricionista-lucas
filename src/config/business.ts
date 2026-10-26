@@ -1,0 +1,55 @@
+export type Config = {
+  name: string; profession: string; city: string; address: string; phone: string;
+  instagram: string; google: string; headline: string; subtitle: string; about: string;
+  theme: string; mode: 'A' | 'B'; crn: string; email: string; hours: string;
+  audience: string; difference: string; heroImage: string; logo: string;
+}
+export const initialConfig: Config = {
+  name: 'Lucas Luz', profession: 'Nutricionista', city: 'Itaboraí, RJ',
+  address: 'Edifício Múltiplo Business Center — Rua Presidente Costa e Silva, 117, Centro, Itaboraí – RJ, 24800-025',
+  phone: '5521972414365', instagram: 'https://www.instagram.com/lucasluz.nutri/',
+  google: 'https://share.google/nEXzAoXovWpvueWvC',
+  headline: 'Nutrição que acompanha o seu ritmo.',
+  subtitle: 'Entre a sua rotina e os seus objetivos, existe um caminho que faz sentido para você. Vamos conversar sobre ele?',
+  about: 'Sou Lucas Luz, nutricionista em Itaboraí. Minha atuação na nutrição também encontra o esporte: no meu perfil, compartilho a rotina de consultório e a vivência como atleta. Atendo presencialmente e online. Conheça meu trabalho e converse comigo sobre o que você busca para a sua alimentação.',
+  theme: 'editorial', mode: 'A', crn: '', email: '', hours: '',
+  audience: '', difference: '', heroImage: '/images/lucas-consultorio.jpg', logo: '',
+}
+export const themes = [
+  { id: 'editorial', name: 'Editorial Luxury', colors: ['#f4f1e9','#263e3b','#b5a48a'], description: 'Areia, tipografia serifada e composição de revista.' },
+  { id: 'performance', name: 'Performance Bold', colors: ['#142323','#d9e8ab','#fbfaf6'], description: 'Contraste forte e tipografia expressiva.' },
+  { id: 'clinical', name: 'Clinical Modern', colors: ['#edf4f6','#1e475e','#8fb9ab'], description: 'Geometria precisa e transparência suave.' },
+  { id: 'organic', name: 'Organic Wellness', colors: ['#f0eadc','#535e3d','#bb936f'], description: 'Tons naturais e formas acolhedoras.' },
+  { id: 'avant', name: 'Avant-Garde', colors: ['#f1ece5','#382b47','#b6b6e8'], description: 'Composição ousada e contraste editorial.' },
+  { id: 'cinematic', name: 'Cinematic Premium', colors: ['#141d28','#e1bf8d','#f2eee7'], description: 'Atmosfera profunda e luz em bronze.' },
+]
+export const services = [
+  { title: 'Consultoria presencial', tag: 'EM ITABORAÍ', description: 'Um encontro no consultório para conversar sobre sua alimentação, rotina e objetivos. Consulte os detalhes do atendimento pelo WhatsApp.', icon: 'office' },
+  { title: 'Consultoria online', tag: 'ONDE VOCÊ ESTIVER', description: 'A possibilidade de conversar sobre nutrição à distância. Entre em contato para saber como funciona a modalidade online.', icon: 'online' },
+]
+export const gallery = [
+  { src: '/images/lucas-consultorio.jpg', alt: 'Lucas Luz no consultório, em fotografia publicada no seu Instagram', label: 'A rotina do consultório', detail: 'Um olhar para o cuidado', source: 'https://www.instagram.com/p/DLbDRNGvT47/' },
+  { src: '/images/lucas-atleta.jpg', alt: 'Lucas Luz no palco de uma competição de fisiculturismo, com troféu', label: 'O esporte faz parte', detail: 'A vivência além do consultório', source: 'https://www.instagram.com/p/DQJ9UvxgKhl/' },
+]
+export const storageKey = 'lucas-luz-briefing-v1'
+export function loadConfig(): Config {
+  try { const raw = localStorage.getItem(storageKey); return raw ? validateConfig(JSON.parse(raw)) : initialConfig } catch { return initialConfig }
+}
+export function validateConfig(value: unknown): Config {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('O arquivo deve conter um objeto de configuração.')
+  const data = value as Record<string, unknown>
+  const result = { ...initialConfig }
+  for (const key of Object.keys(initialConfig) as (keyof Config)[]) {
+    if (data[key] !== undefined) {
+      if (typeof data[key] !== 'string' || (data[key] as string).length > 10000) throw new Error(`Campo inválido: ${key}`)
+      Object.assign(result, { [key]: data[key] })
+    }
+  }
+  if (!themes.some(t => t.id === result.theme) || !['A','B'].includes(result.mode)) throw new Error('Tema ou modo inválido.')
+  for (const key of ['instagram','google'] as const) if (!/^https:\/\//.test(result[key])) throw new Error(`Use HTTPS em ${key}.`)
+  for (const key of ['heroImage','logo'] as const) if (result[key] && !/^(\/[^/]|https:\/\/|data:image\/(png|jpeg|webp);base64,)/.test(result[key])) throw new Error(`Imagem inválida: ${key}`)
+  return result
+}
+export function whatsapp(config: Config, subject = 'Gostaria de saber mais sobre a consulta nutricional.') {
+  return `https://wa.me/${config.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Olá, ${config.name}! ${subject}`)}`
+}

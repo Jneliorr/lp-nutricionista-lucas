@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /configurador
+Sitemap: https://lucas-luz-nutricao-editorial.famousvenus34.chatgpt.site/sitemap.xml
